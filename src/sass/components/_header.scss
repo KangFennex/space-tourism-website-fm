@@ -1,0 +1,140 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-width: 100%;
+    height: 16vh;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__star-icon {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+    }
+
+    &__divider {
+        display: none;
+        position: relative;
+        height: 1px;
+        width: 100%;
+        margin-right: -2rem;
+        z-index: 2000;
+        background: hsl(var(--clr-white) / 0.25);
+        opacity: 0.86;
+    }
+
+    &__menu-icon {
+        position: absolute;
+        right: 45px;
+        width: 1.5rem;
+        z-index: 100;
+        cursor: pointer;
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        padding-inline: clamp(3rem, 7vw, 7rem);
+        padding-top: 6rem;
+        width: 15rem;
+        background: hsl(var(--clr-white) / 0.05);
+        backdrop-filter: blur(1.5rem);
+        z-index: 99;
+
+        &-underline.selected {
+            display: block;
+        }
+
+        & a {
+            display: flex;
+            position: relative;
+            align-items: center;
+            height: 10%;
+            text-decoration: none;
+            color: hsl(var(--clr-light));
+            opacity: 0.86;
+
+            &:hover .header__menu-underline {
+                display: block;
+            }
+        }
+
+        & span {
+            font-weight: 600;
+            color: hsl(var(--clr-white));
+            opacity: 1;
+            margin-right: 0.6rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .header {
+        &__divider {
+            display: block;
+        }
+
+        &__menu {
+            & span {
+                display: block;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .header {
+        &__menu {
+            position: relative;
+            justify-content: space-around;
+            flex-direction: row;
+            width: 100%;
+            height: 5.5rem;
+            padding: 3rem;
+
+            & a {
+                height: 100%;
+                gap: 0.3rem;
+                
+            & div {
+                width: 100%;
+                height: 3px;
+                background-color: hsl(var(--clr-light));
+                position: absolute;
+                /* modify later to put at 0 */
+                bottom: -3rem;
+                display: none;
+            }
+            }
+
+            & span {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .header {
+        &__divider {
+            display: block;
+        }
+
+        &__menu {
+            gap: 3rem;
+            padding-left: 5rem;
+            padding-right: 10rem;
+
+            & span {
+                display: block;
+            }
+        }
+    }
+}

@@ -1,0 +1,206 @@
+.destination {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100%;
+    background-image: url("../../assets/destination/background-destination-mobile.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: hsl(var(--clr-white));
+
+    &__container {
+        width: 100%;
+        padding-bottom: 3rem;
+    }
+
+    &__header {
+        display: flex;
+        gap: 1rem;
+        padding-left: 3rem;
+        font-size: 1.3rem;
+        letter-spacing: 0.2rem;
+        margin-top: 16vh;
+        margin-right: auto;
+
+        & span {
+            opacity: 0.36;
+            font-weight: 700;
+        }
+    }
+
+    &__image {
+        width: 20rem;
+        height: 20rem;
+        margin: auto;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            animation: rotatePlanet 100s linear infinite;
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+
+        &__tabs {
+            margin-top: 1rem;
+            min-height: 2rem;
+
+            & ul {
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                color: hsl(var(--clr-light));
+                gap: 2rem;
+
+                & li {
+                    cursor: pointer;
+
+                    & span {
+                        width: 100%;
+                        height: 3px;
+                        margin-top: 10px;
+                        background-color: hsl(var(--clr-light));
+                        display: none;
+                    }
+
+                    &:hover .underline {
+                        display: flex;
+                    }
+
+                    &.selected {
+                        color: hsl(var(--clr-white));
+                    }
+
+                    &.selected .underline {
+                        display: flex;
+                        background-color: hsl(var(--clr-white));
+                    }
+                }
+            }
+        }
+
+        & h1 {
+            font-size: 5.5rem;
+            font-family: var(--ff-serif);
+            text-transform: uppercase;
+            // margin-top: 1.5rem;
+            font-weight: 300;
+        }
+
+        & p {
+            width: 75%;
+            min-height: 6rem;
+            color: hsl(var(--clr-light));
+            text-align: center;
+            line-height: 1.5rem;
+        }
+
+        &__divider {
+            height: 1px;
+            width: 80%;
+            margin: auto;
+            margin-top: 1rem;
+            background: hsl(var(--clr-white) / 0.25);
+            opacity: 0.86;
+        }
+
+        &__distance {
+            display: flex;
+            justify-content: space-around;
+            width: 65%;
+            text-align: center;
+            margin-top: 1rem;
+
+            & h4 {
+                font-size: 0.9rem;
+                color: hsl(var(--clr-light));
+                margin-bottom: 0.6rem;
+                font-weight: 300;
+            }
+
+            & h2 {
+                font-family: var(--ff-serif);
+                font-size: 1.8rem;
+                text-transform: uppercase;
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .destination {
+        background-image: url("../../assets/destination/background-destination-tablet.jpg");
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .destination {
+        height: 100vh;
+
+        &__container {
+            width: 80%;
+            margin-top: 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            flex-direction: row;
+            font-size: 1.2rem;
+        }
+
+        &__image {
+            width: 25rem;
+            height: 25rem;
+            margin: 0;
+
+            & img {
+            
+            }
+        }
+
+        &__details {
+            align-items: flex-start;
+
+            & p {
+                width: 100%;
+                text-align: justify;
+            }
+
+            &__divider {
+                width: 100%;
+            }
+
+            &__distance {
+                justify-content: flex-start;
+                width: 100%;
+                text-align: justify;
+                margin-top: 0;
+                gap: 5rem;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+    .destination {
+        background-image: url("../../assets/destination/background-destination-desktop.jpg");
+    }
+}
+
+@keyframes rotatePlanet {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
