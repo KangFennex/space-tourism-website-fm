@@ -1,32 +1,61 @@
 import "../../sass/pages/_index.scss";
 import { useState } from "react";
 import data from "../../data.json";
+import { motion } from "framer-motion";
+
+const variants = {
+  initial: {
+    opacity: 0,
+  },
+  final: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      //delay: 0.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
 
 const Destination = () => {
   const [selectedPlanet, setSelectedPlanet] = useState(data.destinations[0]);
 
   const handleSelectPlanet = (planet) => {
-    setSelectedPlanet(planet)
+    setSelectedPlanet(planet);
   }
 
   return (
     <div className="destination">
-
-        <div className="destination__header">
-          <span>01</span>
-          <h4>PICK YOUR DESTINATION</h4>
-        </div>
-      <div className="destination__container">
+      <div className="destination__header">
+        <span>01</span>
+        <h4>PICK YOUR DESTINATION</h4>
+      </div>
+      <motion.div
+        variants={variants}
+        initial="initial"
+        animate="final"
+        exit="exit"
+        className="destination__container">
         <div className="destination__image">
-            <img src={selectedPlanet.images.webp}></img>
-          </div>
+          <img src={selectedPlanet.images.webp}></img>
+        </div>
         <div className="destination__details">
           <nav className="destination__details__tabs">
             <ul>
-              <li className={`${selectedPlanet === data.destinations[0] ? "selected" : ""}`} onClick={() => handleSelectPlanet(data.destinations[0])}>MOON<span className="underline"></span></li>
-              <li className={`${selectedPlanet === data.destinations[1] ? "selected" : ""}`} onClick={() => handleSelectPlanet(data.destinations[1])}>MARS<span className="underline"></span></li>
-              <li className={`${selectedPlanet === data.destinations[2] ? "selected" : ""}`} onClick={() => handleSelectPlanet(data.destinations[2])}>EUROPA<span className="underline"></span></li>
-              <li className={`${selectedPlanet === data.destinations[3] ? "selected" : ""}`} onClick={() => handleSelectPlanet(data.destinations[3])}>TITAN<span className="underline"></span></li>
+              {data.destinations.map((destination, index) => (
+                <li
+                  key={index}
+                  className={`${selectedPlanet === destination ? "selected" : ""}`}
+                  onClick={() => handleSelectPlanet(destination)}
+                >
+                  {destination.name.toUpperCase()}<span className="underline"></span>
+                </li>
+              ))}
             </ul>
           </nav>
           <h1>{selectedPlanet.name}</h1>
@@ -43,7 +72,7 @@ const Destination = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

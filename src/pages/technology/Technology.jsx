@@ -1,6 +1,26 @@
 import "../../sass/pages/_index.scss";
 import { useState } from "react";
 import data from "../../data.json";
+import { motion } from "framer-motion";
+
+const variants = {
+  initial: {
+    opacity: 0,
+  },
+  final: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      //delay: 0.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
 
 const Technology = () => {
   const [selectedTech, setSelectedTech] = useState(data.technology[1]);
@@ -15,7 +35,12 @@ const Technology = () => {
         <span>03</span>
         <h4>SPACE LAUNCH 101</h4>
       </div>
-      <div className="technology__container">
+      <motion.div
+        variants={variants}
+        initial="initial"
+        animate="final"
+        exit="exit"
+        className="technology__container">
         <div className="technology__image">
           <img src={window.innerWidth > 768 ? selectedTech.images.portrait : selectedTech.images.landscape} alt={selectedTech.name} />
         </div>
@@ -29,12 +54,12 @@ const Technology = () => {
             </ul>
           </nav>
           <div>
-          <h4>THE TERMINOLOGY...</h4>
-          <h1>{selectedTech.name}</h1>
-          <p>{selectedTech.description}</p>
+            <h4>THE TERMINOLOGY...</h4>
+            <h1>{selectedTech.name}</h1>
+            <p>{selectedTech.description}</p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
     </div>
   )

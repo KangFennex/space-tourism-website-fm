@@ -1,6 +1,27 @@
 import "../../sass/pages/_index.scss";
 import data from "../../data.json";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+const variants = {
+  initial: {
+    opacity: 0,
+  },
+  final: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      //delay: 0.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
 const Crew = () => {
   const [selectedCrew, setSelectedCrew] = useState(data.crew[0]);
 
@@ -14,7 +35,12 @@ const Crew = () => {
         <span>02</span>
         <h4>MEET YOUR CREW</h4>
       </div>
-      <div className="crew__container">
+      <motion.div
+        variants={variants}
+        initial="initial"
+        animate="final"
+        exit="exit"
+        className="crew__container">
         <div className="crew__details">
           <h4>{selectedCrew.role}</h4>
           <h1>{selectedCrew.name}</h1>
@@ -22,19 +48,24 @@ const Crew = () => {
           <nav className="crew__details__tabs">
             <ul>
               <li className={`${selectedCrew === data.crew[0] ? "selected" : ""}`} onClick={() => handleSelectCrew(data.crew[0])}></li>
-              <li className={`${selectedCrew === data.crew[1] ? "selected" : ""}`} 
-              onClick={() => handleSelectCrew(data.crew[1])}></li>
-              <li className={`${selectedCrew === data.crew[2] ? "selected" : ""}`} 
-              onClick={() => handleSelectCrew(data.crew[2])}></li>
-              <li className={`${selectedCrew === data.crew[3] ? "selected" : ""}`} 
-              onClick={() => handleSelectCrew(data.crew[3])}></li>
+              <li className={`${selectedCrew === data.crew[1] ? "selected" : ""}`}
+                onClick={() => handleSelectCrew(data.crew[1])}></li>
+              <li className={`${selectedCrew === data.crew[2] ? "selected" : ""}`}
+                onClick={() => handleSelectCrew(data.crew[2])}></li>
+              <li className={`${selectedCrew === data.crew[3] ? "selected" : ""}`}
+                onClick={() => handleSelectCrew(data.crew[3])}></li>
             </ul>
           </nav>
         </div>
-        <div className="crew__image">
+        <motion.div
+          variants={variants}
+          initial="initial"
+          animate="final"
+          exit="exit"
+          className="crew__image">
           <img src={selectedCrew.images.webp} alt={selectedCrew.name} />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }
