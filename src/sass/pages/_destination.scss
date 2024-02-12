@@ -39,10 +39,8 @@
         & img {
             width: 100%;
             height: 100%;
-            //opacity: 0;
-            //visibility: hidden;
-            //animation: rotatePlanet 100s linear infinite;
-            //transition: opacity 300ms linear 0ms, visibility 0ms linear 300ms;
+            animation: rotatePlanet 100s linear infinite;
+            // transition: opacity 300ms linear 0ms, visibility 0ms linear 300ms;
         }
     }
 

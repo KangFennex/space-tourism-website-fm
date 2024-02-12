@@ -23,7 +23,7 @@ const variants = {
 };
 
 const Technology = () => {
-  const [selectedTech, setSelectedTech] = useState(data.technology[1]);
+  const [selectedTech, setSelectedTech] = useState(data.technology[0]);
 
   const handleSelectTech = (tech) => {
     setSelectedTech(tech)
@@ -42,22 +42,38 @@ const Technology = () => {
         exit="exit"
         className="technology__container">
         <div className="technology__image">
-          <img src={window.innerWidth > 768 ? selectedTech.images.portrait : selectedTech.images.landscape} alt={selectedTech.name} />
+          <motion.img
+            key={selectedTech.name}
+            src={window.innerWidth > 768 ? selectedTech.images.portrait : selectedTech.images.landscape}
+            alt={selectedTech.name}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          />
         </div>
         <div className="technology__details">
 
           <nav className="technology__details__tabs">
             <ul>
-              <li className={`${selectedTech === data.technology[0] ? "selected" : ""}`} onClick={() => handleSelectTech(data.technology[0])}>1</li>
-              <li className={`${selectedTech === data.technology[1] ? "selected" : ""}`} onClick={() => handleSelectTech(data.technology[1])}>2</li>
-              <li className={`${selectedTech === data.technology[2] ? "selected" : ""}`} onClick={() => handleSelectTech(data.technology[2])}>3</li>
+              {data.technology.map((tech, index) => (
+                <li
+                  key={index}
+                  className={`${selectedTech === tech ? "selected" : ""}`}
+                  onClick={() => handleSelectTech(tech)}
+                >{index + 1}</li>
+              ))}
             </ul>
           </nav>
-          <div>
+          <motion.div
+            key={selectedTech.name}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
             <h4>THE TERMINOLOGY...</h4>
             <h1>{selectedTech.name}</h1>
             <p>{selectedTech.description}</p>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
 

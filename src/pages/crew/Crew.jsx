@@ -47,13 +47,13 @@ const Crew = () => {
           <p>{selectedCrew.bio}</p>
           <nav className="crew__details__tabs">
             <ul>
-              <li className={`${selectedCrew === data.crew[0] ? "selected" : ""}`} onClick={() => handleSelectCrew(data.crew[0])}></li>
-              <li className={`${selectedCrew === data.crew[1] ? "selected" : ""}`}
-                onClick={() => handleSelectCrew(data.crew[1])}></li>
-              <li className={`${selectedCrew === data.crew[2] ? "selected" : ""}`}
-                onClick={() => handleSelectCrew(data.crew[2])}></li>
-              <li className={`${selectedCrew === data.crew[3] ? "selected" : ""}`}
-                onClick={() => handleSelectCrew(data.crew[3])}></li>
+        {data.crew.map((crew, index) => (
+          <li
+          key={index}
+          className={`${selectedCrew === crew ? "selected" : ""}`}
+          onClick={() => handleSelectCrew(crew)}
+          ></li>
+        ))}
             </ul>
           </nav>
         </div>

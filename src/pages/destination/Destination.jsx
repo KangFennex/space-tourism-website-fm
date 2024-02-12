@@ -42,7 +42,14 @@ const Destination = () => {
         exit="exit"
         className="destination__container">
         <div className="destination__image">
-          <img src={selectedPlanet.images.webp}></img>
+          <motion.img 
+          src={selectedPlanet.images.webp}
+          key={selectedPlanet.name}
+          initial={{ opacity: 0.5 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0.5 }}
+          transition={{ duration: 2, ease: "easeInOut" }}  
+          ></motion.img>
         </div>
         <div className="destination__details">
           <nav className="destination__details__tabs">
@@ -58,6 +65,7 @@ const Destination = () => {
               ))}
             </ul>
           </nav>
+
           <h1>{selectedPlanet.name}</h1>
           <p>{selectedPlanet.description}</p>
           <div className="destination__details__divider"></div>
@@ -71,6 +79,7 @@ const Destination = () => {
               <h2>{selectedPlanet.travel}</h2>
             </div>
           </div>
+
         </div>
       </motion.div>
     </div>

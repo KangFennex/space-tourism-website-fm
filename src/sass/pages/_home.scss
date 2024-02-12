@@ -6,13 +6,14 @@
     background-image: url("../../assets/home/background-home-mobile.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    padding-bottom: 3rem;
 
     &__hero {
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        height: 100%;
+        height: 84vh;
         margin-top: 16vh;
         flex-direction: column;
         color: hsl(var(--clr-light));
@@ -47,7 +48,7 @@
             justify-content: center;
             align-items: center;
             height: 50%;
-            padding-bottom: 6rem;
+            //padding-bottom: 6rem;
 
             & h1 {
                 font-size: 2rem;
