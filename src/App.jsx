@@ -10,13 +10,9 @@ import Header from './components/header/Header';
 
 
 function App() {
-  const storedTab = localStorage.getItem('selectedTab');
-  const [selectedTab, setSelectedTab] = useState(storedTab ? parseInt(storedTab) : 0);
+  const [selectedTab, setSelectedTab] = useState(0);
   const handleSelectedTab = (tab) => {
     setSelectedTab(tab);
-
-    // Store the selectedTab value in localStorage
-    localStorage.setItem('selectedTab', tab.toString());
   }
 
   return (

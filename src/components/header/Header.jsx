@@ -1,9 +1,9 @@
 import "../../sass/components/_header.scss";
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import logo from "../../assets/shared/logo.svg";
-import hamburgerIcon from "../../assets/shared/icon-hamburger.svg";
-import closeIcon from "../../assets/shared/icon-close.svg";
+import logo from "/assets/shared/logo.svg";
+import hamburgerIcon from "/assets/shared/icon-hamburger.svg";
+import closeIcon from "/assets/shared/icon-close.svg";
 import { Link } from "react-router-dom";
 
 const Menu = ({ menuRef, selectedTab, handleSelectedTab, handleClickMenu}) => {
