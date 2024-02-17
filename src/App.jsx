@@ -1,5 +1,5 @@
 import './sass/utils/_index.scss';
-import { useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from 'framer-motion';
 import Home from "./pages/home/Home";
@@ -11,9 +11,18 @@ import Header from './components/header/Header';
 
 function App() {
   const [selectedTab, setSelectedTab] = useState(0);
-  const handleSelectedTab = (tab) => {
+
+  useEffect(() => {
+    const storedTab = localStorage.getItem("selectedTab");
+    if (storedTab !== null) {
+      setSelectedTab(parseInt(storedTab));
+    }
+  }, []); // Run once on component mount
+  
+  const handleSelectedTab = useCallback((tab) => {
     setSelectedTab(tab);
-  }
+    localStorage.setItem("selectedTab", tab);
+  }, []);
 
   return (
     <BrowserRouter>
