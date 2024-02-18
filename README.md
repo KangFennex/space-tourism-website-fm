@@ -26,13 +26,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
+![](./space-tourism-website-screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://space-tourism-website-fm2.netlify.app)
+- Solution URL: [Frontedn Mentor](https://your-solution-url.com)
+- Live Site URL: [](https://space-tourism-website-fm2.netlify.app)
 
 ## My process
 
