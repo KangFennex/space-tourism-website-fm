@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontedn Mentor](https://your-solution-url.com)
+- Solution URL: [Frontend Mentor](https://your-solution-url.com)
 - Live Site URL: [](https://space-tourism-website-fm2.netlify.app)
 
 ## My process
